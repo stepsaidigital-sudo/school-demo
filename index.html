@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri International School | Rajahmundry</title>
+    
+    <!-- Fonts: Outfit for Modern Headings, Inter for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0A1128', // Deep Midnight Blue
+                            light: '#F8FAFC',
+                            accent: '#F59E0B', // Vibrant Amber/Gold
+                            accentHover: '#D97706',
+                        }
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Modern Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #0A1128; border-radius: 10px; }
+        
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .glass-dark {
+            background: rgba(10, 17, 40, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        
+        /* Smooth reveal class applied via JS */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Advanced Hero Image Overlay styling */
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(10, 17, 40, 0.95) 0%, rgba(10, 17, 40, 0.6) 50%, rgba(0,0,0,0.1) 100%);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-[#FAFAFA] selection:bg-brand-accent selection:text-white">
+
+    <!-- Modern Navigation (in-flow, not fixed) -->
+    <div class="w-full z-50 px-4 sm:px-6 lg:px-8 pt-4" id="navbar">
+        <nav class="max-w-7xl mx-auto glass rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-6 py-3 flex justify-between items-center border border-white/50">
+            <!-- Logo -->
+            <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                <div class="w-10 h-10 bg-brand-dark rounded-full flex items-center justify-center text-brand-accent font-heading font-bold text-lg shadow-inner">
+                    SIS
+                </div>
+                <span class="font-heading font-bold text-xl text-brand-dark tracking-tight hidden sm:block">Sri International</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-1 lg:space-x-2 bg-gray-50/50 p-1 rounded-full">
+                <a href="#about" class="text-sm font-medium text-gray-600 hover:text-brand-dark hover:bg-white px-4 py-2 rounded-full transition-all">Academics</a>
+                <a href="#faculty" class="text-sm font-medium text-gray-600 hover:text-brand-dark hover:bg-white px-4 py-2 rounded-full transition-all">Faculty</a>
+                <a href="#beyond" class="text-sm font-medium text-gray-600 hover:text-brand-dark hover:bg-white px-4 py-2 rounded-full transition-all">Beyond Class</a>
+                <a href="#campus" class="text-sm font-medium text-gray-600 hover:text-brand-dark hover:bg-white px-4 py-2 rounded-full transition-all">Campus Life</a>
+                <a href="#gallery" class="text-sm font-medium text-gray-600 hover:text-brand-dark hover:bg-white px-4 py-2 rounded-full transition-all">Gallery</a>
+                <a href="#admissions" class="text-sm font-medium text-gray-600 hover:text-brand-dark hover:bg-white px-4 py-2 rounded-full transition-all">Admissions</a>
+            </div>
+
+            <!-- CTA -->
+            <button onclick="openModal()" class="bg-brand-dark text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-accent transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap">
+                Book Counseling
+            </button>
+        </nav>
+    </div>
+
+    <!-- Hero Section (The 70% Converter) -->
+    <section class="relative min-h-[95vh] flex items-center justify-start pt-10 overflow-hidden rounded-b-[3rem] mx-2 sm:mx-4 shadow-2xl mt-4">
+        <!-- Modern Stock Image: Indian students in clean uniform studying -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Modern Indian School Students Studying" class="w-full h-full object-cover object-center scale-105 transform transition-transform duration-10000 hover:scale-100" />
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-10">
+            <div class="max-w-3xl animate-fade-up">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark text-brand-accent font-medium text-xs sm:text-sm mb-6 border border-white/10">
+                    <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                    Admissions Open 2026-27 | Pre-Primary to 10th CBSE
+                </div>
+                
+                <h1 class="font-heading font-extrabold text-5xl md:text-7xl text-white leading-[1.1] mb-6 tracking-tight">
+                    Don't just educate. <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-yellow-200">
+                        Awaken their potential.
+                    </span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl font-light leading-relaxed border-l-2 border-brand-accent pl-4">
+                    Rajahmundry’s premier CBSE institution. From world-class academics to elite sports facilities, we build tomorrow's leaders, today.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="openModal()" class="bg-brand-accent text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-brand-accentHover transition-all shadow-[0_0_20px_rgba(245,158,11,0.4)] transform hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+                        Book a Counseling Session <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </button>
+                    <a href="#campus" class="glass-dark border border-white/20 text-white px-8 py-4 rounded-full text-base font-medium hover:bg-white/10 transition-all text-center">
+                        Discover Campus
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-float flex flex-col items-center opacity-70">
+            <span class="text-white text-xs tracking-widest mb-2 font-light uppercase">Scroll</span>
+            <div class="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- The Prestige Bar (Floating Overlap) -->
+    <div class="relative z-20 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] -mt-12 mx-6 sm:mx-auto max-w-5xl rounded-3xl p-8 border border-gray-100 reveal">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:divide-x divide-gray-100">
+            <div class="text-center px-4 group">
+                <div class="w-12 h-12 mx-auto bg-brand-light rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-trophy text-2xl text-brand-accent"></i>
+                </div>
+                <h3 class="font-heading font-bold text-brand-dark text-lg">Ranked #1</h3>
+                <p class="text-sm text-gray-500 mt-1">In Rajahmundry</p>
+            </div>
+            <div class="text-center px-4 group">
+                <div class="w-12 h-12 mx-auto bg-brand-light rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-book-open-reader text-2xl text-brand-accent"></i>
+                </div>
+                <h3 class="font-heading font-bold text-brand-dark text-lg">CBSE Elite</h3>
+                <p class="text-sm text-gray-500 mt-1">Pre-Primary to 10th</p>
+            </div>
+            <div class="text-center px-4 group">
+                <div class="w-12 h-12 mx-auto bg-brand-light rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-building-shield text-2xl text-brand-accent"></i>
+                </div>
+                <h3 class="font-heading font-bold text-brand-dark text-lg">Premium Hostels</h3>
+                <p class="text-sm text-gray-500 mt-1">Global Standards</p>
+            </div>
+            <div class="text-center px-4 group">
+                <div class="w-12 h-12 mx-auto bg-brand-light rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-medal text-2xl text-brand-accent"></i>
+                </div>
+                <h3 class="font-heading font-bold text-brand-dark text-lg">30+ Activities</h3>
+                <p class="text-sm text-gray-500 mt-1">Sports & Robotics</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Academics -->
+    <section id="about" class="py-24 sm:py-32 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-30 z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative reveal">
+                    <!-- Advanced Image Composition -->
+                    <div class="absolute -inset-4 bg-brand-accent/10 rounded-[3rem] transform -rotate-3 transition-transform hover:rotate-0 duration-500"></div>
+                    <img src="https://images.unsplash.com/photo-1709290749293-c6152a187b14?auto=format&fit=crop&w=800&q=80" alt="Teacher with students in an Indian CBSE classroom" class="relative rounded-[2.5rem] shadow-2xl z-10 object-cover h-[550px] w-full" />
+                    
+                    <!-- Floating stat card -->
+                    <div class="absolute -bottom-8 -right-8 glass rounded-2xl p-6 shadow-xl z-20 w-48 hidden sm:block animate-float">
+                        <div class="text-brand-accent text-3xl font-heading font-bold mb-1">1:15</div>
+                        <div class="text-xs text-gray-600 font-medium uppercase tracking-wider">Teacher to Student Ratio</div>
+                    </div>
+                </div>
+                
+                <div class="reveal">
+                    <h4 class="text-brand-accent font-semibold tracking-widest uppercase text-xs mb-3 flex items-center gap-2">
+                        <span class="w-8 h-px bg-brand-accent"></span> Academics
+                    </h4>
+                    <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark mb-6 leading-[1.1] tracking-tight">Curiosity Meets Brilliance.</h2>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed font-light">
+                        Our expert faculty doesn't just teach the syllabus; they ignite a lifelong love for learning. We blend the rigorous CBSE curriculum with modern, experiential learning methods to ensure your child is always a step ahead.
+                    </p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-6 mt-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-50 hover:shadow-md transition-shadow">
+                            <div class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center text-brand-dark mb-4">
+                                <i class="fa-solid fa-shapes"></i>
+                            </div>
+                            <h5 class="font-heading font-bold text-brand-dark text-lg mb-2">Pre-Primary</h5>
+                            <p class="text-sm text-gray-500 leading-relaxed">Play-way methodology focusing on motor skills and early cognitive development.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-50 hover:shadow-md transition-shadow">
+                            <div class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center text-brand-dark mb-4">
+                                <i class="fa-solid fa-atom"></i>
+                            </div>
+                            <h5 class="font-heading font-bold text-brand-dark text-lg mb-2">Class 1 to 10</h5>
+                            <p class="text-sm text-gray-500 leading-relaxed">Advanced CBSE curriculum integrated with robotics, coding, and analytical thinking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Faculty -->
+    <section id="faculty" class="py-24 sm:py-32 bg-brand-light relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h4 class="text-brand-accent font-semibold tracking-widest uppercase text-xs mb-3 justify-center flex items-center gap-2">
+                    <span class="w-4 h-px bg-brand-accent"></span> Leadership & Faculty <span class="w-4 h-px bg-brand-accent"></span>
+                </h4>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight">The Minds Behind the Mission.</h2>
+                <p class="text-gray-600 text-lg font-light">Every great school is built by great teachers. Meet the educators and administrators guiding your child's journey.</p>
+            </div>
+
+            <!-- Principal's Message -->
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-24 reveal">
+                <div class="relative order-2 lg:order-1">
+                    <h3 class="font-heading text-3xl font-bold text-brand-dark mb-4">A Word From Our Principal</h3>
+                    <p class="text-gray-600 text-lg mb-4 leading-relaxed font-light">
+                        "At Sri International, we don't measure success by marks alone. We measure it by the confidence a shy child gains on stage, the curiosity a young scientist discovers in a lab, and the discipline an athlete builds on the field. Our promise to every parent is simple — your child will be seen, supported, and stretched to their fullest potential."
+                    </p>
+                    <div class="flex items-center gap-3 mt-6">
+                        <div class="w-1 h-10 bg-brand-accent rounded-full"></div>
+                        <div>
+                            <div class="font-heading font-bold text-brand-dark">Dr. Srinivasa Rao Koppisetty</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider">Principal, Ph.D in Education Administration</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative order-1 lg:order-2 max-w-sm mx-auto lg:mx-0">
+                    <div class="absolute -inset-4 bg-brand-accent/10 rounded-[3rem] transform rotate-3 transition-transform hover:rotate-0 duration-500"></div>
+                    <img src="images/principal.png" alt="Principal Dr. Srinivasa Rao Koppisetty" class="relative rounded-[2.5rem] shadow-2xl z-10 object-cover h-[420px] w-full" />
+                    <div class="absolute -bottom-6 -left-6 glass rounded-2xl p-5 shadow-xl z-20 hidden sm:block">
+                        <div class="text-brand-accent text-2xl font-heading font-bold mb-1">22+ Yrs</div>
+                        <div class="text-xs text-gray-600 font-medium uppercase tracking-wider">In Education Leadership</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 border border-gray-50 transform hover:-translate-y-2">
+                    <img src="https://plus.unsplash.com/premium_photo-1682089789852-e3023ff6df24?auto=format&fit=crop&w=400&q=80" alt="Mrs. Lakshmi Devi Chintalapudi" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h5 class="font-heading font-bold text-lg text-brand-dark mb-0.5">Mrs. Lakshmi Devi Chintalapudi</h5>
+                        <p class="text-brand-accent text-xs font-semibold uppercase tracking-wider mb-3">Head of Mathematics</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">17 years teaching CBSE Mathematics; mentor to 30+ National Talent Search Exam scholars.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 border border-gray-50 transform hover:-translate-y-2">
+                    <div class="w-full h-56 bg-brand-dark flex items-center justify-center">
+                        <span class="text-white font-heading font-bold text-4xl">AV</span>
+                    </div>
+                    <div class="p-6">
+                        <h5 class="font-heading font-bold text-lg text-brand-dark mb-0.5">Mr. Anand Vardhan Reddy</h5>
+                        <p class="text-brand-accent text-xs font-semibold uppercase tracking-wider mb-3">Head of Sciences</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">M.Sc Physics; leads the Young Scientist Program and Robotics Club curriculum.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 border border-gray-50 transform hover:-translate-y-2">
+                    <div class="w-full h-56 bg-brand-accent flex items-center justify-center">
+                        <span class="text-white font-heading font-bold text-4xl">SN</span>
+                    </div>
+                    <div class="p-6">
+                        <h5 class="font-heading font-bold text-lg text-brand-dark mb-0.5">Ms. Swathi Nagireddy</h5>
+                        <p class="text-brand-accent text-xs font-semibold uppercase tracking-wider mb-3">Head of English & Humanities</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">Trained debate & MUN coach; her students have won 12 inter-school championships.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 border border-gray-50 transform hover:-translate-y-2">
+                    <div class="w-full h-56 bg-slate-700 flex items-center justify-center">
+                        <span class="text-white font-heading font-bold text-4xl">RK</span>
+                    </div>
+                    <div class="p-6">
+                        <h5 class="font-heading font-bold text-lg text-brand-dark mb-0.5">Mr. Ravi Kiran Bandaru</h5>
+                        <p class="text-brand-accent text-xs font-semibold uppercase tracking-wider mb-3">Director of Sports & Wellness</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">Former state-level athlete; oversees all 30+ sports & fitness programs on campus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beyond the Classroom (Sports & Hobbies) -->
+    <section id="beyond" class="py-24 sm:py-32 bg-brand-dark text-white rounded-[3rem] mx-2 sm:mx-4 my-8 relative overflow-hidden">
+        <!-- Abstract gradient blob -->
+        <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-accent/20 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div class="max-w-2xl">
+                    <h4 class="text-brand-accent font-semibold tracking-widest uppercase text-xs mb-3 flex items-center gap-2">
+                        <span class="w-8 h-px bg-brand-accent"></span> Beyond Academics
+                    </h4>
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6 tracking-tight">Champions Are Made Here.</h2>
+                    <p class="text-gray-300 text-lg font-light">
+                        Academics build the mind. Sports build the character. From our Olympic-standard swimming pool to vast fields for cricket, we offer an unmatched ecosystem.
+                    </p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <a href="#" class="inline-flex items-center gap-2 text-white border border-white/30 rounded-full px-6 py-3 hover:bg-white hover:text-brand-dark transition-all text-sm font-medium">
+                        Student Sports Portal <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Modern Asymmetrical Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[500px] reveal">
+                
+                <!-- Large Feature -->
+                <div class="md:col-span-7 group relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-full">
+                    <img src="https://images.unsplash.com/photo-1569173675610-42c361a86e37?auto=format&fit=crop&w=1000&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Elite Sports Academies">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <div class="w-10 h-10 rounded-full glass-dark flex items-center justify-center text-brand-accent mb-4">
+                            <i class="fa-solid fa-basketball"></i>
+                        </div>
+                        <h3 class="text-white font-heading font-bold text-3xl mb-2">Elite Sports Academies</h3>
+                        <p class="text-gray-300 text-sm md:w-3/4 opacity-90 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Professional coaching for Basketball, Cricket, Football & Athletics on professional-grade grounds.</p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 flex flex-col gap-6 h-full">
+                    <!-- Top Small Feature -->
+                    <div class="group relative rounded-3xl overflow-hidden shadow-xl h-[250px] flex-1">
+                        <img src="https://plus.unsplash.com/premium_photo-1661378941087-0be65e025118?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Swimming">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-white font-heading font-bold text-xl mb-1">Half-Olympic Pool</h3>
+                            <p class="text-gray-300 text-xs">Expert swimming coaching and water safety.</p>
+                        </div>
+                    </div>
+                    <!-- Bottom Small Feature -->
+                    <div class="group relative rounded-3xl overflow-hidden shadow-xl h-[250px] flex-1">
+                        <img src="https://images.unsplash.com/photo-1778489769184-45868633c527?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Robotics">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-white font-heading font-bold text-xl mb-1">Tech & Robotics Club</h3>
+                            <p class="text-gray-300 text-xs">Building the engineers of tomorrow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results & Achievements -->
+    <section id="results" class="py-24 sm:py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h4 class="text-brand-accent font-semibold tracking-widest uppercase text-xs mb-3 justify-center flex items-center gap-2">
+                    <span class="w-4 h-px bg-brand-accent"></span> Results & Achievements <span class="w-4 h-px bg-brand-accent"></span>
+                </h4>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight">Numbers That Speak For Themselves.</h2>
+                <p class="text-gray-600 text-lg font-light">Consistent CBSE board performance backed by a decade of academic and extracurricular excellence.</p>
+            </div>
+
+            <!-- Stat Strip -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 reveal">
+                <div class="bg-white rounded-2xl p-6 text-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50">
+                    <div class="font-heading text-4xl font-extrabold text-brand-dark mb-1">100<span class="text-brand-accent">%</span></div>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider font-medium">CBSE Pass Rate 2026</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50">
+                    <div class="font-heading text-4xl font-extrabold text-brand-dark mb-1">42</div>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider font-medium">Merit Rankers (5 Yrs)</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50">
+                    <div class="font-heading text-4xl font-extrabold text-brand-dark mb-1">18</div>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider font-medium">State-Level Sports Medals</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50">
+                    <div class="font-heading text-4xl font-extrabold text-brand-dark mb-1">30<span class="text-brand-accent">+</span></div>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider font-medium">Olympiad Qualifiers</p>
+                </div>
+            </div>
+
+            <!-- Toppers -->
+            <div class="mb-20 reveal">
+                <h3 class="font-heading text-2xl font-bold text-brand-dark mb-8 text-center">Class X, 2025-26 Board Toppers</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-brand-dark text-white rounded-2xl p-6 text-center relative overflow-hidden">
+                        <i class="fa-solid fa-trophy text-brand-accent text-2xl mb-3"></i>
+                        <div class="font-heading font-bold text-lg mb-0.5">Sai Keerthana M.</div>
+                        <div class="text-xs text-gray-400 mb-2">Science Stream</div>
+                        <div class="text-brand-accent font-heading text-2xl font-extrabold">99.0%</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50">
+                        <i class="fa-solid fa-medal text-brand-accent text-2xl mb-3"></i>
+                        <div class="font-heading font-bold text-lg text-brand-dark mb-0.5">Ananya Reddy K.</div>
+                        <div class="text-xs text-gray-500 mb-2">Science Stream</div>
+                        <div class="text-brand-accent font-heading text-2xl font-extrabold">98.4%</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50">
+                        <i class="fa-solid fa-medal text-brand-accent text-2xl mb-3"></i>
+                        <div class="font-heading font-bold text-lg text-brand-dark mb-0.5">Rohit Varma P.</div>
+                        <div class="text-xs text-gray-500 mb-2">Commerce Stream</div>
+                        <div class="text-brand-accent font-heading text-2xl font-extrabold">97.8%</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50">
+                        <i class="fa-solid fa-medal text-brand-accent text-2xl mb-3"></i>
+                        <div class="font-heading font-bold text-lg text-brand-dark mb-0.5">Divya Sri N.</div>
+                        <div class="text-xs text-gray-500 mb-2">Science Stream</div>
+                        <div class="text-brand-accent font-heading text-2xl font-extrabold">97.1%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievement Highlights -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
+                <div class="text-center px-4 group">
+                    <div class="w-14 h-14 mx-auto bg-brand-light rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-brain text-xl text-brand-accent"></i>
+                    </div>
+                    <p class="text-sm font-semibold text-brand-dark">National Science Olympiad</p>
+                    <p class="text-xs text-gray-500 mt-1">3 Gold, 5 Silver (2026)</p>
+                </div>
+                <div class="text-center px-4 group">
+                    <div class="w-14 h-14 mx-auto bg-brand-light rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-robot text-xl text-brand-accent"></i>
+                    </div>
+                    <p class="text-sm font-semibold text-brand-dark">State Robotics Championship</p>
+                    <p class="text-xs text-gray-500 mt-1">Runners-up, 2025</p>
+                </div>
+                <div class="text-center px-4 group">
+                    <div class="w-14 h-14 mx-auto bg-brand-light rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-palette text-xl text-brand-accent"></i>
+                    </div>
+                    <p class="text-sm font-semibold text-brand-dark">District Cultural Fest</p>
+                    <p class="text-xs text-gray-500 mt-1">Overall Champions, 3 Yrs Running</p>
+                </div>
+                <div class="text-center px-4 group">
+                    <div class="w-14 h-14 mx-auto bg-brand-light rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-basketball text-xl text-brand-accent"></i>
+                    </div>
+                    <p class="text-sm font-semibold text-brand-dark">Inter-School Athletics Meet</p>
+                    <p class="text-xs text-gray-500 mt-1">Overall Trophy, 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Life & Hostels -->
+    <section id="campus" class="py-24 bg-transparent relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h4 class="text-brand-accent font-semibold tracking-widest uppercase text-xs mb-3 justify-center flex items-center gap-2">
+                    <span class="w-4 h-px bg-brand-accent"></span> Campus Life <span class="w-4 h-px bg-brand-accent"></span>
+                </h4>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight">A Home Away from Home.</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg font-light">
+                    Designed for both local and international students, our campus offers a secure, nurturing environment that fosters independence and community.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+                <!-- Facility 1 -->
+                <div class="bg-white rounded-[2rem] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 border border-gray-50 transform hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-brand-dark text-white rounded-2xl flex items-center justify-center text-xl mb-6 shadow-lg">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-2xl mb-3 text-brand-dark">Premium Boarding</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed font-light">Spacious, ventilated rooms with top-tier 24/7 security, dedicated wardens, and high-speed Wi-Fi zones for project work.</p>
+                </div>
+                <!-- Facility 2 -->
+                <div class="bg-white rounded-[2rem] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 border border-gray-50 transform hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-brand-accent text-white rounded-2xl flex items-center justify-center text-xl mb-6 shadow-lg">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-2xl mb-3 text-brand-dark">Gourmet Dining</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed font-light">Highly nutritious, chef-prepared meals catering to diverse palettes. We prioritize hygiene, health, and global cuisine.</p>
+                </div>
+                <!-- Facility 3 -->
+                <div class="bg-white rounded-[2rem] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 border border-gray-50 transform hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-brand-dark text-white rounded-2xl flex items-center justify-center text-xl mb-6 shadow-lg">
+                        <i class="fa-solid fa-bus"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-2xl mb-3 text-brand-dark">Smart Transport</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed font-light">GPS-enabled, air-conditioned bus network covering all municipal and suburban routes of Rajahmundry with female attendants.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Gallery -->
+    <section id="gallery" class="py-24 sm:py-32 bg-brand-light relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h4 class="text-brand-accent font-semibold tracking-widest uppercase text-xs mb-3 justify-center flex items-center gap-2">
+                    <span class="w-4 h-px bg-brand-accent"></span> Campus Gallery <span class="w-4 h-px bg-brand-accent"></span>
+                </h4>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight">A Glimpse Into Everyday Life.</h2>
+                <p class="text-gray-600 text-lg font-light">From the classroom to the playground, here's what a day at Sri International really looks like.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 reveal">
+                <div class="col-span-2 row-span-2 relative rounded-3xl overflow-hidden shadow-lg group h-64 md:h-full">
+                    <img src="https://images.unsplash.com/photo-1778489769184-45868633c527?auto=format&fit=crop&w=900&q=80" alt="Smart Computer Lab" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <h3 class="text-white font-heading font-bold text-lg">Smart Computer Lab</h3>
+                        <p class="text-gray-300 text-xs">Hands-on digital literacy from Class 3 onwards.</p>
+                    </div>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden shadow-lg group h-40 md:h-56">
+                    <img src="https://images.unsplash.com/photo-1569173675610-42c361a86e37?auto=format&fit=crop&w=600&q=80" alt="Student Life" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-4">
+                        <h3 class="text-white font-heading font-bold text-sm">Student Life</h3>
+                    </div>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden shadow-lg group h-40 md:h-56">
+                    <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=600&q=80" alt="Sports & Athletics" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-4">
+                        <h3 class="text-white font-heading font-bold text-sm">Sports & Athletics</h3>
+                    </div>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden shadow-lg group h-40 md:h-56">
+                    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80" alt="Library & Resource Center" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-4">
+                        <h3 class="text-white font-heading font-bold text-sm">Library & Resource Center</h3>
+                    </div>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden shadow-lg group h-40 md:h-56">
+                    <img src="https://images.unsplash.com/photo-1709290749293-c6152a187b14?auto=format&fit=crop&w=600&q=80" alt="Classroom Learning" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-4">
+                        <h3 class="text-white font-heading font-bold text-sm">Classroom Learning</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials & Alumni -->
+    <section id="testimonials" class="py-24 sm:py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h4 class="text-brand-accent font-semibold tracking-widest uppercase text-xs mb-3 justify-center flex items-center gap-2">
+                    <span class="w-4 h-px bg-brand-accent"></span> Testimonials & Alumni <span class="w-4 h-px bg-brand-accent"></span>
+                </h4>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight">Trusted By Parents. Proven By Alumni.</h2>
+            </div>
+
+            <!-- Parent Testimonials -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 reveal">
+                <div class="bg-white rounded-2xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50">
+                    <div class="flex text-brand-accent text-xs mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-600 text-sm italic leading-relaxed mb-5">"My daughter went from being hesitant to speak in class to representing the school at the state-level debate championship. The faculty genuinely knows every child by name."</p>
+                    <div class="flex items-center gap-3 border-t border-gray-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-dark text-brand-accent flex items-center justify-center font-heading font-bold text-sm flex-shrink-0">PK</div>
+                        <div>
+                            <div class="font-bold text-brand-dark text-sm">Padmavathi Konda</div>
+                            <div class="text-xs text-gray-500">Parent, Class 8</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50">
+                    <div class="flex text-brand-accent text-xs mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-600 text-sm italic leading-relaxed mb-5">"We moved from Hyderabad mid-year and were worried about the transition. The admissions team and class teacher made it seamless. Transport and hostel support are excellent."</p>
+                    <div class="flex items-center gap-3 border-t border-gray-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-accent text-white flex items-center justify-center font-heading font-bold text-sm flex-shrink-0">VR</div>
+                        <div>
+                            <div class="font-bold text-brand-dark text-sm">Venkata Ramana Chowdary</div>
+                            <div class="text-xs text-gray-500">Parent, Class 5</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50">
+                    <div class="flex text-brand-accent text-xs mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-600 text-sm italic leading-relaxed mb-5">"The Robotics Club changed my son's outlook on Science completely. He's now preparing for the National Robotics Championship with full school support."</p>
+                    <div class="flex items-center gap-3 border-t border-gray-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-slate-700 text-white flex items-center justify-center font-heading font-bold text-sm flex-shrink-0">SM</div>
+                        <div>
+                            <div class="font-bold text-brand-dark text-sm">Sunitha Mallela</div>
+                            <div class="text-xs text-gray-500">Parent, Class 9</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alumni -->
+            <div class="bg-brand-dark rounded-[2.5rem] p-8 md:p-12 reveal">
+                <h3 class="font-heading text-2xl font-bold text-white mb-8 text-center">Where Our Alumni Are Today</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-center gap-4 bg-white/5 rounded-2xl p-5 border border-white/10">
+                        <div class="w-14 h-14 rounded-full bg-brand-accent text-white flex items-center justify-center font-heading font-bold text-lg flex-shrink-0">KP</div>
+                        <div>
+                            <div class="font-bold text-white text-sm">Karthik Pasupuleti</div>
+                            <div class="text-xs text-gray-400">Batch of 2021 &middot; Now at IIT Hyderabad, Computer Science</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white/5 rounded-2xl p-5 border border-white/10">
+                        <div class="w-14 h-14 rounded-full bg-white text-brand-dark flex items-center justify-center font-heading font-bold text-lg flex-shrink-0">MT</div>
+                        <div>
+                            <div class="font-bold text-white text-sm">Meghana Tirumalasetti</div>
+                            <div class="text-xs text-gray-400">Batch of 2020 &middot; National-level Badminton Player</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Events -->
+    <section id="news" class="py-24 bg-brand-light relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h4 class="text-brand-accent font-semibold tracking-widest uppercase text-xs mb-3 justify-center flex items-center gap-2">
+                    <span class="w-4 h-px bg-brand-accent"></span> News & Events <span class="w-4 h-px bg-brand-accent"></span>
+                </h4>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight">What's Happening On Campus.</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                <div class="bg-white rounded-2xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50 hover:-translate-y-1 transition-transform">
+                    <div class="text-brand-accent text-xs font-bold uppercase tracking-wider mb-2">15 Aug 2026</div>
+                    <h5 class="font-heading font-bold text-brand-dark mb-2">Independence Day Cultural Program</h5>
+                    <p class="text-xs text-gray-500 leading-relaxed">Flag hoisting, patriotic performances & parent invite for all classes.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50 hover:-translate-y-1 transition-transform">
+                    <div class="text-brand-accent text-xs font-bold uppercase tracking-wider mb-2">02 Sep 2026</div>
+                    <h5 class="font-heading font-bold text-brand-dark mb-2">Open House for Prospective Parents</h5>
+                    <p class="text-xs text-gray-500 leading-relaxed">Campus tour, meet faculty & get your admission questions answered.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50 hover:-translate-y-1 transition-transform">
+                    <div class="text-brand-accent text-xs font-bold uppercase tracking-wider mb-2">21 Sep 2026</div>
+                    <h5 class="font-heading font-bold text-brand-dark mb-2">Science & Robotics Exhibition</h5>
+                    <p class="text-xs text-gray-500 leading-relaxed">Student projects on display, judged by external science faculty.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-50 hover:-translate-y-1 transition-transform">
+                    <div class="text-brand-accent text-xs font-bold uppercase tracking-wider mb-2">10 Oct 2026</div>
+                    <h5 class="font-heading font-bold text-brand-dark mb-2">Annual Sports Day</h5>
+                    <p class="text-xs text-gray-500 leading-relaxed">Track & field events, inter-house championship finals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-24 relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h4 class="text-brand-accent font-semibold tracking-widest uppercase text-xs mb-3 justify-center flex items-center gap-2">
+                    <span class="w-4 h-px bg-brand-accent"></span> FAQ <span class="w-4 h-px bg-brand-accent"></span>
+                </h4>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight">Questions Parents Ask Us.</h2>
+            </div>
+            <div class="space-y-4 reveal">
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <button onclick="toggleFAQ(1)" class="w-full flex items-center justify-between p-5 text-left">
+                        <span class="font-heading font-bold text-brand-dark text-sm">What board and classes does Sri International offer?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-plus text-brand-accent transition-transform"></i>
+                    </button>
+                    <div id="faq-answer-1" class="hidden px-5 pb-5 text-sm text-gray-600 leading-relaxed">We are a CBSE-affiliated institution offering Pre-Primary through Class 10, with a structured transition pathway to Class 11-12 partner junior colleges.</div>
+                </div>
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <button onclick="toggleFAQ(2)" class="w-full flex items-center justify-between p-5 text-left">
+                        <span class="font-heading font-bold text-brand-dark text-sm">How does the admission & entrance assessment process work?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-plus text-brand-accent transition-transform"></i>
+                    </button>
+                    <div id="faq-answer-2" class="hidden px-5 pb-5 text-sm text-gray-600 leading-relaxed">Book a counseling session, complete a stress-free entrance assessment covering core concepts and reasoning, then receive your enrollment offer within 5 working days.</div>
+                </div>
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <button onclick="toggleFAQ(3)" class="w-full flex items-center justify-between p-5 text-left">
+                        <span class="font-heading font-bold text-brand-dark text-sm">Do you provide hostel and transport facilities?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-plus text-brand-accent transition-transform"></i>
+                    </button>
+                    <div id="faq-answer-3" class="hidden px-5 pb-5 text-sm text-gray-600 leading-relaxed">Yes. We offer premium boarding with 24/7 security and wardens, plus a GPS-enabled AC bus network covering all municipal and suburban routes of Rajahmundry.</div>
+                </div>
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <button onclick="toggleFAQ(4)" class="w-full flex items-center justify-between p-5 text-left">
+                        <span class="font-heading font-bold text-brand-dark text-sm">Are merit and sports scholarships available?</span>
+                        <i id="faq-icon-4" class="fa-solid fa-plus text-brand-accent transition-transform"></i>
+                    </button>
+                    <div id="faq-answer-4" class="hidden px-5 pb-5 text-sm text-gray-600 leading-relaxed">Yes — Academic Excellence (up to 50% tuition waiver), Sports Champions (coaching + fee concessions), and an All-Rounder Award with a custom board grant.</div>
+                </div>
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <button onclick="toggleFAQ(5)" class="w-full flex items-center justify-between p-5 text-left">
+                        <span class="font-heading font-bold text-brand-dark text-sm">What is the teacher-to-student ratio?</span>
+                        <i id="faq-icon-5" class="fa-solid fa-plus text-brand-accent transition-transform"></i>
+                    </button>
+                    <div id="faq-answer-5" class="hidden px-5 pb-5 text-sm text-gray-600 leading-relaxed">We maintain a 1:15 teacher-to-student ratio across all grades to ensure every child gets individual attention.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions & Scholarships -->
+    <section id="admissions" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-dark rounded-[3rem] shadow-2xl p-8 md:p-16 border border-brand-dark overflow-hidden relative reveal">
+                
+                <!-- Decoration -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-accent rounded-full blur-[120px] opacity-20"></div>
+
+                <div class="text-center mb-16 relative z-10">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Your Child’s Journey Begins Here.</h2>
+                    <p class="text-gray-300 max-w-2xl mx-auto text-lg font-light">We believe in nurturing true talent. Discover our structured admission process, transparent entrance exams, and prestigious merit scholarships.</p>
+                </div>
+
+                <!-- 3 Steps -->
+                <div class="grid md:grid-cols-3 gap-8 mb-20 relative z-10">
+                    <!-- Connecting line -->
+                    <div class="hidden md:block absolute top-10 left-24 right-24 h-px bg-white/20 z-0"></div>
+                    
+                    <div class="relative z-10 text-center group">
+                        <div class="w-20 h-20 mx-auto bg-brand-dark text-brand-accent rounded-2xl flex items-center justify-center font-heading font-bold text-2xl mb-6 shadow-xl border border-white/10 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">1</div>
+                        <h4 class="font-heading font-bold text-xl text-white mb-2">Book Counseling</h4>
+                        <p class="text-sm text-gray-400 font-light">Meet our admission directors and tour our world-class campus.</p>
+                    </div>
+                    <div class="relative z-10 text-center group">
+                        <div class="w-20 h-20 mx-auto bg-brand-dark text-brand-accent rounded-2xl flex items-center justify-center font-heading font-bold text-2xl mb-6 shadow-xl border border-white/10 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">2</div>
+                        <h4 class="font-heading font-bold text-xl text-white mb-2">Entrance Assessment</h4>
+                        <p class="text-sm text-gray-400 font-light">A stress-free evaluation of core concepts and logical reasoning.</p>
+                    </div>
+                    <div class="relative z-10 text-center group">
+                        <div class="w-20 h-20 mx-auto bg-brand-dark text-brand-accent rounded-2xl flex items-center justify-center font-heading font-bold text-2xl mb-6 shadow-xl border border-white/10 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">3</div>
+                        <h4 class="font-heading font-bold text-xl text-white mb-2">Enrollment</h4>
+                        <p class="text-sm text-gray-400 font-light">Review your acceptance offer and receive the exclusive welcome kit.</p>
+                    </div>
+                </div>
+
+                <!-- Scholarships Box -->
+                <div class="mt-16 bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 relative z-10">
+                    <div class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
+                        <div>
+                            <h3 class="font-heading font-bold text-2xl text-white mb-1">Merit & Sports Scholarships</h3>
+                            <p class="text-sm text-gray-400">Rewarding brilliance and empowering talent.</p>
+                        </div>
+                        <button class="text-brand-accent font-medium hover:text-white transition-colors text-sm flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            Download Syllabus <i class="fa-solid fa-download"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-brand-dark/50 p-6 rounded-2xl border border-white/5">
+                            <i class="fa-solid fa-star text-brand-accent text-2xl mb-3"></i>
+                            <h5 class="text-white font-bold mb-2">Academic Excellence</h5>
+                            <p class="text-xs text-gray-400 mb-3">Top 5% rankers in the Entrance Assessment.</p>
+                            <div class="text-brand-accent text-sm font-semibold">Up to 50% Tuition Waiver</div>
+                        </div>
+                        <div class="bg-brand-dark/50 p-6 rounded-2xl border border-white/5">
+                            <i class="fa-solid fa-medal text-brand-accent text-2xl mb-3"></i>
+                            <h5 class="text-white font-bold mb-2">Sports Champions</h5>
+                            <p class="text-xs text-gray-400 mb-3">State/National-level participation in recognized sports.</p>
+                            <div class="text-brand-accent text-sm font-semibold">Coaching + Fee Concessions</div>
+                        </div>
+                        <div class="bg-brand-dark/50 p-6 rounded-2xl border border-white/5">
+                            <i class="fa-solid fa-award text-brand-accent text-2xl mb-3"></i>
+                            <h5 class="text-white font-bold mb-2">All-Rounder Award</h5>
+                            <p class="text-xs text-gray-400 mb-3">Exceptional performance in academics & extracurriculars.</p>
+                            <div class="text-brand-accent text-sm font-semibold">Custom Board Grant</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center relative z-10">
+                    <button onclick="openModal()" class="bg-brand-accent text-white px-10 py-4 rounded-full text-base font-bold hover:bg-brand-accentHover transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)] transform hover:-translate-y-1">
+                        Apply for Entrance Exam
+                    </button>
+                    <p class="text-sm text-gray-400 mt-4 font-light">Spaces are strictly limited for the 2026-27 academic year.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white pt-20 pb-10 mt-12 border-t-2 border-brand-accent relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Branding -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-brand-dark font-heading font-bold text-xl">
+                            SIS
+                        </div>
+                        <span class="font-heading font-bold text-xl tracking-tight">Sri International</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">Awakening the greatest potential in every child. Rajahmundry’s premier CBSE institution.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400 font-light">
+                        <li><a href="#about" class="hover:text-brand-accent transition-colors">Academics</a></li>
+                        <li><a href="#faculty" class="hover:text-brand-accent transition-colors">Leadership & Faculty</a></li>
+                        <li><a href="#results" class="hover:text-brand-accent transition-colors">Results & Achievements</a></li>
+                        <li><a href="#beyond" class="hover:text-brand-accent transition-colors">Student Portals</a></li>
+                        <li><a href="#campus" class="hover:text-brand-accent transition-colors">Hostel & Transport</a></li>
+                        <li><a href="#gallery" class="hover:text-brand-accent transition-colors">Campus Gallery</a></li>
+                        <li><a href="#testimonials" class="hover:text-brand-accent transition-colors">Testimonials & Alumni</a></li>
+                        <li><a href="#faq" class="hover:text-brand-accent transition-colors">FAQ</a></li>
+                        <li><a href="#admissions" class="hover:text-brand-accent transition-colors">Admissions & Scholarships</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 font-light">
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-brand-accent flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-xs"></i>
+                            </div>
+                            <span>Sri International School,<br/>Rajahmundry, East Godavari, AP</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-brand-accent flex-shrink-0">
+                                <i class="fa-solid fa-phone text-xs"></i>
+                            </div>
+                            <span class="font-medium text-white">9491082728</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-brand-accent flex-shrink-0">
+                                <i class="fa-solid fa-envelope text-xs"></i>
+                            </div>
+                            <span>admissions@sriinternational.in</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">Location</h4>
+                    <div class="w-full h-32 bg-white/5 rounded-2xl overflow-hidden flex items-center justify-center border border-white/10 hover:border-brand-accent transition-colors cursor-pointer group">
+                        <div class="text-center">
+                            <i class="fa-solid fa-map text-2xl text-brand-accent mb-2 group-hover:scale-110 transition-transform"></i>
+                            <p class="text-xs text-gray-400">View on Google Maps</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 font-light">&copy; 2026 Sri International School. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Premium Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-brand-dark/90 backdrop-blur-md" onclick="closeModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:p-0">
+            <div id="modalContent" class="relative bg-white rounded-[2rem] text-left overflow-hidden shadow-2xl transform scale-95 transition-all duration-300 sm:my-8 sm:max-w-lg w-full border border-gray-100">
+                <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-brand-dark z-10 bg-gray-50 rounded-full w-8 h-8 flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                
+                <div class="bg-gray-50 px-8 py-10 text-center border-b border-gray-100">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-accent text-xl mx-auto mb-4 shadow-sm">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold text-brand-dark mb-2">
+                        Book a Counseling Session
+                    </h3>
+                    <p class="text-sm text-gray-500 font-light">Take the first step towards your child's brilliant future.</p>
+                </div>
+                
+                <div class="px-8 py-8">
+                    <form onsubmit="handleFormSubmit(event)" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Parent's Name</label>
+                            <input type="text" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-accent focus:border-brand-accent focus:bg-white outline-none transition-all text-sm" placeholder="John Doe">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Phone Number</label>
+                                <input type="tel" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-accent focus:border-brand-accent focus:bg-white outline-none transition-all text-sm" placeholder="+91 90000 00000">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Child's Class</label>
+                                <select class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-accent focus:border-brand-accent focus:bg-white outline-none transition-all text-sm">
+                                    <option>Pre-Primary</option>
+                                    <option>Class 1 - 5</option>
+                                    <option>Class 6 - 8</option>
+                                    <option>Class 9 - 10</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <button type="submit" class="w-full bg-brand-dark text-white font-bold py-4 rounded-xl shadow-lg hover:bg-brand-accent transition-colors flex items-center justify-center gap-2">
+                                Confirm Appointment <i class="fa-solid fa-arrow-right text-sm"></i>
+                            </button>
+                            <p class="text-xs text-center text-gray-500 mt-4 font-light"><i class="fa-solid fa-shield-halved mr-1 text-brand-accent"></i> Your information is secure. Our team will contact you within 24 hours.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Modal Logic with transitions
+        const modal = document.getElementById('bookingModal');
+        const modalContent = document.getElementById('modalContent');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            // Trigger reflow
+            void modal.offsetWidth; 
+            modal.classList.remove('opacity-0');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300); // Wait for transition
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        // Form Submit handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Request Received';
+            btn.classList.remove('bg-brand-dark', 'hover:bg-brand-accent');
+            btn.classList.add('bg-green-600', 'hover:bg-green-700');
+            
+            setTimeout(() => {
+                closeModal();
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.add('bg-brand-dark', 'hover:bg-brand-accent');
+                    btn.classList.remove('bg-green-600', 'hover:bg-green-700');
+                    e.target.reset();
+                }, 300);
+            }, 2000);
+        }
+
+        // Scroll Reveal Animation Logic
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+
+        // FAQ Accordion Toggle
+        function toggleFAQ(id) {
+            const answer = document.getElementById('faq-answer-' + id);
+            const icon = document.getElementById('faq-icon-' + id);
+            const isOpen = !answer.classList.contains('hidden');
+            document.querySelectorAll('[id^="faq-answer-"]').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('[id^="faq-icon-"]').forEach(el => el.classList.remove('rotate-45'));
+            if (!isOpen) {
+                answer.classList.remove('hidden');
+                icon.classList.add('rotate-45');
+            }
+        }
+    </script>
+</body>
+</html>
